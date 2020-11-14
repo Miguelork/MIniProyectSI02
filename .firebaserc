@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "miniproyectsi02": {
+      "hosting": {
+        "MiniProyectSI02": [
+          "miniproyectsi02"
+        ]
+      }
+    }
+  }
+}

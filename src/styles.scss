@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+main{
+    margin-top: 70px;
+}
+body{
+    background-color: #333333;
+    color: whitesmoke;
+}
+
+.bg-dark{
+    background-color: #333333;
+    color: whitesmoke;
+}
+.btn-acept{
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+    background-color: #08bb3d;
+    &:hover{
+        background-color: whitesmoke;
+        color:#08bb3d;  
+        border: 2px solid #08bb3d; 
+    }
+}
+.btn-reg{
+    color:whitesmoke;
+    border: 2px solid whitesmoke;
+    background-color:#333333;
+    &:hover{
+        background-color: whitesmoke;
+        color:#333333;  
+        border: 2px solid#333333; 
+    }
+}
+.adorno{
+    color:whitesmoke;
+    border: 1px solid whitesmoke;
+    background-color: #333333;
+}

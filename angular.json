@@ -121,8 +121,16 @@
               "devServerTarget": "MiniProyectSI02:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "MiniProyectSI02"
+    }
+  },
+  "defaultProject": "MiniProyectSI02",
+  "cli": {
+    "analytics": false
+  }
 }
