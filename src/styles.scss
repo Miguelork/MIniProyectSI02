@@ -6,10 +6,6 @@ body{
     color: whitesmoke;
 }
 
-.bg-dark{
-    background-color: #333333;
-    color: whitesmoke;
-}
 .btn-acept{
     color: whitesmoke;
     border: 2px solid whitesmoke;
@@ -19,6 +15,14 @@ body{
         color:#08bb3d;  
         border: 2px solid #08bb3d; 
     }
+}
+.cen{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tc{
+    text-align: center;
 }
 .btn-reg{
     color:whitesmoke;
