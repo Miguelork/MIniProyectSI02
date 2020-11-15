@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BoxpersonComponent } from './components/boxperson/boxperson.component';
 import { ListpersonComponent } from './components/listperson/listperson.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
 
 const routes: Routes = [{path: 'personajes', component: ListpersonComponent}, 
-{path: 'personajes-d/:id', component: BoxpersonComponent}];
-//{path: 'personajes-d/:id', loadChildren}
+{path: 'fav', component: FavoriteComponent}];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

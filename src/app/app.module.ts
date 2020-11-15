@@ -14,6 +14,7 @@ import { SmallboxpersonComponent } from './components/smallboxperson/smallboxper
 import { BarraBusqComponent } from './components/barra-busq/barra-busq.component';
 import { HttpClientModule } from '@angular/common/http'
 import { ApiRMService } from 'src/app/services/api-rm.service';
+import { FavoriteComponent } from './components/favorite/favorite.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ApiRMService } from 'src/app/services/api-rm.service';
     BoxpersonComponent,
     ListpersonComponent,
     SmallboxpersonComponent,
-    BarraBusqComponent
+    BarraBusqComponent,
+    FavoriteComponent
   ],
   imports: [
     BrowserModule,
