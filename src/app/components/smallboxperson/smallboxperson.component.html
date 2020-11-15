@@ -1,13 +1,9 @@
 <div class="card shadow-sm letra">
-    <img src="" alt="">
-    <div class=" container">
-        <div class="row">
-            <div class="col-sm-12">
-                <a [routerLink]="['/personajes-',personaje.id]" routerLinkActive="router-link-active" ><img src="{{personaje.image}}" alt="Avatar Not Found"></a>
-            </div>
-            <div class="col-sm-12">
-                <h2>{{personaje.name}}</h2>
-            </div>
+    <img class="card-img-top" [src]="character.image" alt="Avatar Not Found">
+    <div class="card-body">
+        <h6 class="card-text text-black">{{character.name}}</h6>
+        <div class="d-flex justify-content-between align-items-center cen">
+            <a type="button" [routerLink]="['/personajes',character.id]" class="btn btn-acept">Detalles</a>
         </div>
     </div>
 </div>
