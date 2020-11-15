@@ -9,7 +9,21 @@ import { ApiRMService } from 'src/app/services/api-rm.service';
   styleUrls: ['./boxperson.component.scss']
 })
 export class BoxpersonComponent implements OnInit {
-  @Input() character:Character;
+  @Input() character:Character={
+    id:0,
+    name:'',
+    location:{
+      name:'',
+    },
+    status:'',
+    gender:'',
+    species:'',
+    origin: {
+      name:'',
+    },
+    image:'',
+    created:''
+    };
 
   constructor(private route:ActivatedRoute,private api:ApiRMService) { 
     

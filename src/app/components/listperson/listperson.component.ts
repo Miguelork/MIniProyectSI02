@@ -33,7 +33,6 @@ export class ListpersonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   private urlChange() {
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.characters = [];
@@ -42,8 +41,6 @@ export class ListpersonComponent implements OnInit {
     }
     );
   }
-
-
 
   getCharactersByQ() {
     this.route.queryParams.pipe(take(1)).subscribe((params: ParamMap) => {
