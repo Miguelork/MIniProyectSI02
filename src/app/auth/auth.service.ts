@@ -1,16 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
-//Firebase:
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument, } from '@angular/fire/firestore';
 import firebase from 'firebase/app';
 import auth from 'firebase/app';
-
-//Modelos:
 import { User } from "../models/user";
-
-//Observables:
 import {switchMap} from 'rxjs/operators';
 import { Observable , of} from 'rxjs';
 
@@ -20,21 +14,14 @@ export class AuthService {
   
   User: Observable<User>;
   
-  constructor (
-    public afAuth: AngularFireAuth,
-    private firestore: AngularFirestore,
-    private router: Router
-  ) 
+  constructor (public afAuth: AngularFireAuth,private firestore: AngularFirestore,private router: Router) 
   {
-    //Se comprueba si el usuario esta correctamente logeado en la aplicación:
     this.User = this.afAuth.authState.pipe(switchMap(User => 
     {
-      //Usuario conectado:
       if( User )
       {
         return this.firestore.doc<User>(`users/${User.uid}`).valueChanges();
       }
-      //Usuario desconectado:
       else 
       {
         return of(null);
@@ -42,7 +29,6 @@ export class AuthService {
     }))
   }
 
-  //Método para usar el inicio de sesión con Google:
   public googleLogin() 
   {
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -50,7 +36,6 @@ export class AuthService {
     return this.oAuthLogin(provider);
   }
 
-  //Método para iniciar sesión y guardar la información del usuario (Google):
   private oAuthLogin(provider) 
   {
     return this.afAuth.signInWithPopup(provider).then(credentials => {
@@ -74,66 +59,23 @@ export class AuthService {
       this.router.navigate(['/personajes']);
     })
   }
-  
-  //Método que actualiza la data del usuario:
-  public updateUserData(user){
-    const userRef: AngularFirestoreDocument<User> = this.firestore.doc(`users/${user.uid}`);
-    if(user.photoUrl == null){
-      if(user.role == "customer"){
-        console.log("photoNula")
-        const data: User = {
-          uid: user.uid,
-          email: user.email,
-          name: user.name
-        }
-        return userRef.set(data);
-      }else{
-        const data: User = {
-          uid: user.uid,
-          email: user.email,
-          name: user.name
-        }
-        return userRef.set(data);
-      }
-    }else{
-      if(user.role == "customer"){
-        console.log("photoNoNulala")
-        const data: User = {
-          uid: user.uid,
-          email: user.email,
-          name: user.name
-      }
-      return userRef.set(data);
-    }else {
-      const data: User = {
-        uid: user.uid,
-        email: user.email,
-        name: user.name
-      }
-      return userRef.set(data);
-    }
-  }
-  }
-  //Método para iniciar sesión con email y password:
+
   public emailAndPassword(email, password)
   {
     return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 
-  //Método para registrar un nuevo usuario:
   public signUp(email, password)
   {
     return this.afAuth.createUserWithEmailAndPassword(email, password);
   }
 
-  //Método para cerrar sesión:
   public signOut() 
   {
     this.afAuth.signOut().then(() => 
     this.router.navigate(['/login']));
   }
 
-  //Recuperar contraseña
   public ForgotPassword(email)
   {
     this.afAuth.sendPasswordResetEmail(email).then(function() {

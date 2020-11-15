@@ -12,7 +12,6 @@ export class AuthGuard implements CanActivate {
 canActivate(
   next: ActivatedRouteSnapshot,
   state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-  //Busco el usuario en mi servicio. lo casteo en un booleano y luego compruebo si esta loggeado
   return this.auth.User.pipe(
     take(1), 
     map(user => !!user), 
