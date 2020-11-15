@@ -14,7 +14,9 @@ export class BarraBusqComponent implements OnInit {
   }
 
   onSearch(value:string){
-    this.router.navigate(['/personajes'], {queryParams: {q:value}});
+    if(value && value.length>3){
+      this.router.navigate(['/personajes'], {queryParams: {q:value}});
+    }
   }
 
 }

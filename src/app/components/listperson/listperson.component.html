@@ -1,18 +1,18 @@
 <div class="container">
     <div class="row">
         <div *ngFor="let character of characters">
-        <div class="col-md-12">
-            <div class="card shadow-sm letra">
-                <a><img class="card-img-top" [src]="character.image" alt="Avatar Not Found"></a>
-                <div class="card-body">
-                    <h6 class="card-text text-black">{{character.name}}</h6>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+            <div class="col-md-12">
+                <div class="card shadow-sm letra">
+                    <img class="card-img-top" [src]="character.image" alt="Avatar Not Found">
+                    <div class="card-body">
+                        <h5 class="card-text text-black">{{character.name}}</h5>
+                        <div class="d-flex justify-content-between align-items-center cen">
+                            <a type="button" [routerLink]="['/personajes',character.id]" class="btn btn-acept">Detalles</a>
+                        </div>
                     </div>
                 </div>
+                <br>
             </div>
-            <br>
-        </div>
         </div>
     </div>
 </div>
