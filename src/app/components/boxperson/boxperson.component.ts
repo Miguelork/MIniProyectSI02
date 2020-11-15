@@ -10,23 +10,26 @@ import { ApiRMService } from 'src/app/services/api-rm.service';
 })
 export class BoxpersonComponent implements OnInit {
   @Input() character:Character={
-    id:0,
+      id:0,
     name:'',
     location:{
       name:'',
+      url:''
     },
     status:'',
     gender:'',
     species:'',
     origin: {
       name:'',
+      url:''
     },
     image:'',
+    url:'',
+    type:'',
     created:''
     };
-
   constructor(private route:ActivatedRoute,private api:ApiRMService) { 
-    
+    console.log(this.character);
   }
 
   ngOnInit(): void {

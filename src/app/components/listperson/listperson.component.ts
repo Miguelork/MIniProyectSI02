@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Component, OnInit, Inject, HostListener } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, ParamMap, Router } from '@angular/router';
 import { take, filter } from 'rxjs/operators';
 import { Character } from 'src/app/models/character';
@@ -17,6 +17,25 @@ type RequestInfo = {
 })
 export class ListpersonComponent implements OnInit {
   characters: Character[] = [];
+  char:Character={
+    id:0,
+  name:'',
+  location:{
+    name:'',
+    url:''
+  },
+  status:'',
+  gender:'',
+  species:'',
+  origin: {
+    name:'',
+    url:''
+  },
+  image:'',
+  url:'',
+  type:'',
+  created:''
+  }
   info: RequestInfo = {
     next: null,
   }
@@ -40,6 +59,10 @@ export class ListpersonComponent implements OnInit {
       this.getCharactersByQ();
     }
     );
+  }
+
+  almacen(character){
+    this.char=character;
   }
 
   getCharactersByQ() {

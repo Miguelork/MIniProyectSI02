@@ -15,6 +15,7 @@ export class ApiRMService {
   getDetails(id:number){
     return this.http.get<Character>(`${this.link}/${id}`)
   }
+  
   searchPersonajes(query='',page=1){
     return this.http.get<Character[]>(`${'https://rickandmortyapi.com/api/character/'}/?name=${query}&page=${page}`)
   }

@@ -2,9 +2,11 @@
     <div class="row">
         <div *ngFor="let character of characters">
             <div class="col-md-12">
-               <app-smallboxperson [character]="character"></app-smallboxperson>
-                <br>
+               <button (click)="almacen(character)" type="button" class="btn btn-reg mb-2 mt-2" data-toggle="modal" data-target="#info"><app-smallboxperson [character]="character"></app-smallboxperson></button>
             </div>
         </div>
     </div>
 </div>
+<div class="modal modal-lg fade" id="info" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <app-boxperson [character]=char></app-boxperson>
+</div>  
