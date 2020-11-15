@@ -8,10 +8,29 @@ import { Character } from 'src/app/models/character';
 })
 export class SmallboxpersonComponent implements OnInit {
 @Input() character:Character;
+c:Character={
+id:0,
+name:'',
+location:{
+  name:'',
+},
+status:'',
+gender:'',
+species:'',
+origin: {
+  name:'',
+},
+image:'',
+created:''
+};
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  almacena(character){
+    this.c=character;
   }
 
 }

@@ -3,7 +3,11 @@
     <div class="card-body">
         <h6 class="card-text text-black">{{character.name}}</h6>
         <div class="d-flex justify-content-between align-items-center cen">
-            <a type="button" [routerLink]="['/personajes',character.id]" class="btn btn-acept">Detalles</a>
+            <a type="button" (click)="almacena(character)" class="btn btn-acept" data-toggle="modal"
+            data-target="#info">Detalles</a>
         </div>
     </div>
 </div>
+<div class="modal fade" id="info" tabindex="-1" aria-hidden="true">
+    <app-boxperson [character]="c"></app-boxperson>
+</div>  
